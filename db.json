@@ -1,0 +1,41 @@
+{
+  "cases": [],
+  "users": [
+    {
+      "id": "1",
+      "name": "Mr.Yanakit Sitthithep",
+      "role": "เจ้าหน้าที่ศูนย์ลำดวน",
+      "dept": "ศูนย์ลำดวน ทีม A",
+      "active": true
+    },
+    {
+      "id": "2",
+      "name": "Mr.Supakorn Chomchemplee",
+      "role": "เจ้าหน้าที่ศูนย์ลำดวน",
+      "dept": "ศูนย์ลำดวน ทีม A",
+      "active": true
+    },
+    {
+      "id": "3",
+      "name": "Mr.Sulaphiphat Thippanet",
+      "role": "แพทย์ฉุกเฉิน (ER)",
+      "dept": "แผนกฉุกเฉิน",
+      "active": true
+    },
+    {
+      "id": "4",
+      "name": "Mr.Saichon Janphimai",
+      "role": "แพทย์ศัลยกรรม",
+      "dept": "ห้องผ่าตัด",
+      "active": true
+    },
+    {
+      "id": "5",
+      "name": "Mr.Anusit Kaewpanan",
+      "role": "Admin",
+      "dept": "ไอที",
+      "active": true
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
