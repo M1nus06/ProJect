@@ -1,5 +1,6 @@
 import React from "react";
 import useDutyStore from "/src/store/useDutyStore.js";
+import { supabase } from "../lib/supabase";
 import { useEffect } from "react";
 import {
   Building2,
