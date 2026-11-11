@@ -1,5 +1,6 @@
 import React from "react";
 import useDutyStore from "/src/store/useDutyStore.js";
+import { useEffect } from "react";
 import {
   Building2,
   Check,
@@ -9,6 +10,28 @@ import {
 } from "lucide-react";
 
 export default function HospitalDashboard({ cases, handleUpdateStatus }) {
+  useEffect(() => {
+    // สมัครรับการเปลี่ยนแปลงจากตาราง cases
+    const subscription = supabase
+      .channel("public:cases")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "cases" },
+        (payload) => {
+          console.log("มีข้อมูลใหม่เข้ามา:", payload.new);
+
+          // อัปเดต State ในหน้าจอทันที (เช่น นำข้อมูลใหม่ไปต่อท้าย State เดิม)
+          setCases((prevCases) => [payload.new, ...prevCases]);
+        },
+      )
+      .subscribe();
+
+    // Cleanup เมื่อปิดหน้าเว็บ
+    return () => {
+      supabase.removeChannel(subscription);
+    };
+  }, []);
+
   const { updateCaseStatus } = useDutyStore();
 
   return (
